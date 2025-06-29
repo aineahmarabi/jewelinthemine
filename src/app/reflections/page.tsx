@@ -45,7 +45,7 @@ export default async function ReflectionsCategoryPage() {
       <div className="border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-6 py-8">
           <h1 className="text-4xl font-bold text-gray-900">Reflections</h1>
-          <p className="text-gray-600 mt-2">Personal thoughts, insights, and contemplations on life's journey</p>
+          <p className="text-gray-600 mt-2">Personal thoughts, insights, and contemplations on life&aposs journey</p>
         </div>
       </div>
 

@@ -19,10 +19,6 @@ export default async function BlogPostPage({ params }: Props) {
   const currentUrl = `${process.env.NEXT_PUBLIC_SITE_URL || ""}/blog/${slug}`;
   const shareText = encodeURIComponent(post.title);
 
-  const twitterShare = `https://twitter.com/intent/tweet?url=${encodeURIComponent(currentUrl)}&text=${shareText}`;
-  const whatsappShare = `https://wa.me/?text=${encodeURIComponent(post.title + " " + currentUrl)}`;
-  const instagramShare = "https://www.instagram.com/";
-
   return (
     <main className="min-h-screen bg-[#f0efe9] font-sans">
       <div className="max-w-6xl mx-auto px-6 py-12">

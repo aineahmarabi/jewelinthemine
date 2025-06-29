@@ -2,17 +2,23 @@ import { getPosts } from "@/lib/sanity";
 import { urlFor } from "@/lib/sanityImage";
 import Link from "next/link";
 
+interface SanityImage {
+  _type: "image";
+  asset: { _ref: string; _type: "reference"; };
+}
+
+
 type Post = {
   _id: string;
   title: string;
   slug: { current: string };
-  mainImage?: any;
+  mainImage?: SanityImage;
   excerpt?: string;
   publishedAt?: string;
   category?: string;
   author?: {
     name?: string;
-    image?: any;
+    image?: SanityImage;
   };
 };
 

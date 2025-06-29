@@ -47,21 +47,6 @@ export default function ShareButtons({ url, title, excerpt = '', className = '' 
     }
   };
 
-//   const handleNativeShare = async () => {
-//     if (navigator.share) {
-//       try {
-//         await navigator.share({
-//           title,
-//           text: excerpt,
-//           url,
-//         });
-//       } catch (err) {
-//         console.error('Error sharing:', err);
-//       }
-//     } else {
-//       handleCopyLink();
-//     }
-//   };
 
   return (
     <div className={`border-t border-gray-200 pt-6 ${className}`}>

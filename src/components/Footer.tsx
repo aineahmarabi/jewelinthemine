@@ -55,7 +55,7 @@ export default function Footer() {
         <div>
           <h3 className="text-lg font-semibold mb-3">Newsletter</h3>
           <p className="text-gray-700 mb-2">Get the latest stories delivered to your inbox.</p>
-          <form className="flex flex-col space-y-2">
+          <form className="flex flex-col space-y-2"> 
             <input
               type="email"
               placeholder="Your email"

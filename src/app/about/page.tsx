@@ -10,7 +10,7 @@ export default function AboutPage() {
         {/* Left: Main Image */}
         <div className="md:w-2/3 w-full flex flex-col">
           <h1 className="text-2xl md:text-3xl font-bold text-[#22223B] mb-4">
-            My Journey to the Mines – Imelda
+            My Journey in the Mines – Imelda
           </h1>
           <div className="w-full h-64 md:h-80 relative mb-6 rounded-lg overflow-hidden">
             <Image
@@ -33,7 +33,7 @@ export default function AboutPage() {
             When I am not at a mining site or working on new projects, you will find me lost in a good novel, sipping coffee, or marveling at the beauty of gemstones—especially citrine, my birthstone. I believe every stone, like every person, has a unique story to tell.
           </p>
           <p className="text-base text-gray-700 mb-4">
-            <span className="font-semibold text-[#A855F7]">Jewel in the Mines</span> is my space to share stories, insights, and inspiration from my life as an engineer, adventurer, and believer. Whether you’re curious about mining, love gemstones, or just enjoy a good story, I hope you’ll find something here that resonates with you.
+            <span className="font-semibold text-[#A855F7]">Jewel in the Mines</span> is my space to share stories, insights, and inspiration from my life as an engineer, adventurer, and believer. Whether you’re curious about mining, love gemstones, or just want toenjoy a good story, I hope you’ll find something here that resonates with you.
           </p>
           <p className="text-base text-gray-700">
             Thank you for stopping by! If you would like to connect, feel free to <Link href="/contact" className="text-[#A855F7] underline hover:text-[#9333EA]">reach out</Link> or explore more of my journey.
@@ -54,8 +54,7 @@ export default function AboutPage() {
           <div className="bg-[#F6F5F0] rounded-lg p-4 text-center shadow">
             <h2 className="text-lg font-bold text-[#22223B] mb-2">Hey! I’m Imelda</h2>
             <p className="text-sm text-gray-700 mb-2">
-              I am a mining engineer, gemstone enthusiast, and a lover of stories. Welcome to my blog! Here, you can learn about my adventures in mining, my love for citrine, and how I find beauty and faith in every journey.
-            </p>
+Welcome to Jewel in the Mines! Here, we explore everything from adventure to inspiration, with stories that spark curiosity and conversation. As they say, "The best stories are those we share together." Thank you for being part of the adventure.            </p>
             <p className="text-sm text-gray-700">
               Along with my engineering work, I started this blog to share my experiences and connect with fellow adventurers and dreamers. If you want to know more about me, check my <Link href="/contact" className="text-[#A855F7] underline hover:text-[#9333EA]">contact page</Link>.
             </p>

@@ -71,7 +71,7 @@ export default async function Home() {
             <img
               src={urlFor(latest.mainImage)}
               alt={latest.title}
-              className="w-full h-64 object-cover rounded mb-4"
+              className="w-full h-64 object-contain rounded mb-4"
             />
           )}
           <div className="text-xs text-gray-500 mb-2">

@@ -55,9 +55,6 @@ export default function AboutPage() {
             <h2 className="text-lg font-bold text-[#22223B] mb-2">Hey! I’m Imelda</h2>
             <p className="text-sm text-gray-700 mb-2">
 Welcome to Jewel in the Mines! Here, we explore everything from adventure to inspiration, with stories that spark curiosity and conversation. As they say, "The best stories are those we share together." Thank you for being part of the adventure.            </p>
-            <p className="text-sm text-gray-700">
-              Along with my engineering work, I started this blog to share my experiences and connect with fellow adventurers and dreamers. If you want to know more about me, check my <Link href="/contact" className="text-[#A855F7] underline hover:text-[#9333EA]">contact page</Link>.
-            </p>
           </div>
         </aside>
       </div>

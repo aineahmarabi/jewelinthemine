@@ -90,7 +90,7 @@ export default async function BlogPostPage({ params }: Props) {
             <img
               src={urlFor(post.mainImage)}
               alt={post.title}
-              className="w-full h-[60vh] object-cover rounded-lg shadow-sm"
+              className="w-full h-[60vh] object-contain rounded-lg shadow-sm"
             />
           </div>
         )}

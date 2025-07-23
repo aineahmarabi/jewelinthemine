@@ -10,7 +10,7 @@ export default function AboutPage() {
         {/* Left: Main Image */}
         <div className="md:w-2/3 w-full flex flex-col">
           <h1 className="text-2xl md:text-3xl font-bold text-[#22223B] mb-4">
-            My Journey in the Mines – Imelda
+            My Journey in the Mines – Nasubo
           </h1>
           <div className="w-full h-64 md:h-80 relative mb-6 rounded-lg overflow-hidden">
             <Image
@@ -27,7 +27,7 @@ export default function AboutPage() {
             <span>Imelda Nasubo</span>
           </div>
           <p className="text-base text-gray-700 mb-4">
-            I had always dreamed of working in an industry that let me dig deep—literally and figuratively. As a mining engineer, I get to explore the earth’s treasures, solve real-world challenges, and make a difference in communities. My journey has been filled with adventure, learning, and a passion for discovery.
+            I had always dreamt of working in an industry that let me dig deep—literally and figuratively. As a mining engineer, I get to explore the earth’s treasures, solve real-world challenges, and make a difference in communities. My journey has been filled with adventure, learning, and a passion for discovery.
           </p>
           <p className="text-base text-gray-700 mb-4">
             When I am not at a mining site or working on new projects, you will find me lost in a good novel, sipping coffee, or marveling at the beauty of gemstones—especially citrine, my birthstone. I believe every stone, like every person, has a unique story to tell.

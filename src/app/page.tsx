@@ -16,6 +16,7 @@ type Post = {
     image?: any;
   };
 };
+export const dynamic = "force-dynamic"; // Ensure this page is always dynamic
 
 export default async function Home() {
   const posts: Post[] = await getPosts();
@@ -29,8 +30,8 @@ export default async function Home() {
   }
 
   const latest = posts[0];
-  const leftPosts = posts.slice(1, 4);   // 3 cards on the left
-  const rightPosts = posts.slice(4, 6);  // 2 cards on the right
+  const leftPosts = posts.slice(1, 4); 
+  const rightPosts = posts.slice(4, 6); 
 
   // Filter mining posts (case-insensitive), limit to 4
   const miningPosts = posts.filter(

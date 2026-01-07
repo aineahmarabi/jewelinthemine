@@ -21,7 +21,7 @@ export default async function TravelCategoryPage() {
   
   // Filter only travel posts
   const travelPosts = allPosts.filter(
-    (post) => post.category?.toLowerCase() === "travel"
+    (post) => post.category?.toLowerCase() === "travel" || post.category?.title?.toLowerCase() === "travel"
   );
 
   if (!travelPosts || travelPosts.length === 0) {

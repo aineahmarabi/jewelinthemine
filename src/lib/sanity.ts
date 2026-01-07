@@ -15,7 +15,8 @@ export async function getPosts() {
     mainImage,
     excerpt,
     publishedAt,
-    "category": category->title,
+    category,
+    "categoryTitle": category->title,
     "author": author->{
       name,
       image
@@ -33,7 +34,8 @@ export async function getPostBySlug(slug: string) {
       mainImage,
       excerpt,
       publishedAt,
-      "category": category->title,
+      category,
+      "categoryTitle": category->title,
       "author": author->{
         name,
         image

@@ -21,7 +21,7 @@ export default async function MentorshipCategoryPage() {
   
   // Filter only mentorship posts
   const mentorshipPosts = allPosts.filter(
-    (post) => post.category?.toLowerCase() === "mentorship"
+    (post) => post.category?.toLowerCase() === "mentorship" || post.category?.title?.toLowerCase() === "mentorship"
   );
 
   if (!mentorshipPosts || mentorshipPosts.length === 0) {

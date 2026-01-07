@@ -27,7 +27,7 @@ export default async function FaithCategoryPage() {
   
   // Filter only faith posts
   const faithPosts = allPosts.filter(
-    (post) => post.category?.toLowerCase() === "faith"
+    (post) => post.category?.toLowerCase() === "faith" || post.category?.title?.toLowerCase() === "faith"
   );
 
   if (!faithPosts || faithPosts.length === 0) {

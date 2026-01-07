@@ -21,7 +21,7 @@ export default async function RelationshipCategoryPage() {
   
   // Filter only relationship posts
   const relationshipPosts = allPosts.filter(
-    (post) => post.category?.toLowerCase() === "relationship"
+    (post) => post.category?.toLowerCase() === "relationship" || post.category?.title?.toLowerCase() === "relationship"
   );
 
   if (!relationshipPosts || relationshipPosts.length === 0) {

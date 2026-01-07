@@ -21,7 +21,7 @@ export default async function ReflectionsCategoryPage() {
   
   // Filter only reflections posts
   const reflectionsPosts = allPosts.filter(
-    (post) => post.category?.toLowerCase() === "reflections"
+    (post) => post.category?.toLowerCase() === "reflections" || post.category?.title?.toLowerCase() === "reflections"
   );
 
   if (!reflectionsPosts || reflectionsPosts.length === 0) {

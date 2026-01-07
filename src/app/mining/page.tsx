@@ -21,7 +21,7 @@ export default async function MiningCategoryPage() {
   
   // Filter only mining posts
   const miningPosts = allPosts.filter(
-    (post) => post.category?.toLowerCase() === "mining"
+    (post) => post.category?.toLowerCase() === "mining" || post.category?.title?.toLowerCase() === "mining"
   );
 
   if (!miningPosts || miningPosts.length === 0) {

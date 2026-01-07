@@ -9,7 +9,8 @@ type Post = {
   mainImage?: any;
   excerpt?: string;
   publishedAt?: string;
-  category?: string;
+  category?: string | { title?: string };
+  categoryTitle?: string;
   author?: {
     name?: string;
     image?: any;
@@ -20,9 +21,12 @@ export default async function RelationshipCategoryPage() {
   const allPosts: Post[] = await getPosts();
   
   // Filter only relationship posts
-  const relationshipPosts = allPosts.filter(
-    (post) => post.category?.toLowerCase() === "relationship" || post.category?.title?.toLowerCase() === "relationship"
-  );
+  const relationshipPosts = allPosts.filter((post) => {
+    const categoryName = typeof post.category === 'string' 
+      ? post.category 
+      : post.category?.title || post.categoryTitle || '';
+    return categoryName.toLowerCase() === 'relationship';
+  });
 
   if (!relationshipPosts || relationshipPosts.length === 0) {
     return (

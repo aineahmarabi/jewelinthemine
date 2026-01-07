@@ -9,7 +9,8 @@ type Post = {
   mainImage?: any;
   excerpt?: string;
   publishedAt?: string;
-  category?: string;
+  category?: string | { title?: string };
+  categoryTitle?: string;
   author?: {
     name?: string;
     image?: any;
@@ -20,9 +21,12 @@ export default async function MiningCategoryPage() {
   const allPosts: Post[] = await getPosts();
   
   // Filter only mining posts
-  const miningPosts = allPosts.filter(
-    (post) => post.category?.toLowerCase() === "mining" || post.category?.title?.toLowerCase() === "mining"
-  );
+  const miningPosts = allPosts.filter((post) => {
+    const categoryName = typeof post.category === 'string' 
+      ? post.category 
+      : post.category?.title || post.categoryTitle || '';
+    return categoryName.toLowerCase() === 'mining';
+  });
 
   if (!miningPosts || miningPosts.length === 0) {
     return (

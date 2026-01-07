@@ -15,7 +15,8 @@ type Post = {
   mainImage?: SanityImage;
   excerpt?: string;
   publishedAt?: string;
-  category?: string;
+  category?: string | { title?: string };
+  categoryTitle?: string;
   author?: {
     name?: string;
     image?: SanityImage;
@@ -26,9 +27,12 @@ export default async function FaithCategoryPage() {
   const allPosts: Post[] = await getPosts();
   
   // Filter only faith posts
-  const faithPosts = allPosts.filter(
-    (post) => post.category?.toLowerCase() === "faith" || post.category?.title?.toLowerCase() === "faith"
-  );
+  const faithPosts = allPosts.filter((post) => {
+    const categoryName = typeof post.category === 'string' 
+      ? post.category 
+      : post.category?.title || post.categoryTitle || '';
+    return categoryName.toLowerCase() === 'faith';
+  });
 
   if (!faithPosts || faithPosts.length === 0) {
     return (

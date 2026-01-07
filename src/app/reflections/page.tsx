@@ -9,7 +9,8 @@ type Post = {
   mainImage?: any;
   excerpt?: string;
   publishedAt?: string;
-  category?: string;
+  category?: string | { title?: string };
+  categoryTitle?: string;
   author?: {
     name?: string;
     image?: any;
@@ -20,9 +21,12 @@ export default async function ReflectionsCategoryPage() {
   const allPosts: Post[] = await getPosts();
   
   // Filter only reflections posts
-  const reflectionsPosts = allPosts.filter(
-    (post) => post.category?.toLowerCase() === "reflections" || post.category?.title?.toLowerCase() === "reflections"
-  );
+  const reflectionsPosts = allPosts.filter((post) => {
+    const categoryName = typeof post.category === 'string' 
+      ? post.category 
+      : post.category?.title || post.categoryTitle || '';
+    return categoryName.toLowerCase() === 'reflections';
+  });
 
   if (!reflectionsPosts || reflectionsPosts.length === 0) {
     return (

@@ -1,4 +1,3 @@
-
 import { getPostBySlug } from "@/lib/sanity";
 import { urlFor } from "@/lib/sanityImage";
 import { notFound } from "next/navigation";

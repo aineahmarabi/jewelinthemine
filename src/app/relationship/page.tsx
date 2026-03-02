@@ -60,11 +60,11 @@ export default async function RelationshipCategoryPage() {
           <div className="lg:col-span-2">
             <Link href={`/blog/${featuredPost.slug.current}`} className="group block">
               {featuredPost.mainImage && (
-                <div className="relative overflow-hidden rounded-lg mb-6 aspect-[16/10]">
+                <div className="w-full h-80 overflow-hidden rounded bg-zinc-100">
                   <img
                     src={urlFor(featuredPost.mainImage)}
                     alt={featuredPost.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
               )}
@@ -141,11 +141,11 @@ export default async function RelationshipCategoryPage() {
                     className="group bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300"
                   >
                     {post.mainImage && (
-                      <div className="aspect-[16/10] overflow-hidden">
+                      <div className="w-full h-56 overflow-hidden bg-zinc-100">
                         <img
                           src={urlFor(post.mainImage)}
                           alt={post.title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                         />
                       </div>
                     )}

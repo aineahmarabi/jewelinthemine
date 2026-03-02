@@ -48,11 +48,11 @@ export default async function Home() {
               className="bg-white rounded shadow hover:shadow-lg transition p-4 flex flex-col group"
             >
               {post.mainImage && (
-                <div className="w-full h-40 overflow-hidden rounded mb-2">
+                <div className="w-full h-56 overflow-hidden rounded mb-2 bg-zinc-100">
                   <img
                     src={urlFor(post.mainImage)}
                     alt={post.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
               )}
@@ -68,11 +68,11 @@ export default async function Home() {
         {/* Center column - Latest post */}
         <div className="bg-white rounded shadow-lg p-4 flex flex-col items-center group">
           {latest.mainImage && (
-            <div className="w-full h-72 overflow-hidden rounded mb-4">
+            <div className="w-full h-80 overflow-hidden rounded mb-4 bg-zinc-100">
               <img
                 src={urlFor(latest.mainImage)}
                 alt={latest.title}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
               />
             </div>
           )}
@@ -99,11 +99,11 @@ export default async function Home() {
               className="bg-white rounded shadow hover:shadow-lg transition p-4 flex flex-col group"
             >
               {post.mainImage && (
-                <div className="w-full h-48 overflow-hidden rounded mb-2">
+                <div className="w-full h-64 overflow-hidden rounded mb-2 bg-zinc-100">
                   <img
                     src={urlFor(post.mainImage)}
                     alt={post.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
               )}
@@ -146,11 +146,11 @@ export default async function Home() {
                   className="bg-white rounded-lg shadow hover:shadow-xl transition-all duration-300 flex flex-col group overflow-hidden"
                 >
                   {post.mainImage && (
-                    <div className="w-full h-48 overflow-hidden">
+                    <div className="w-full h-56 overflow-hidden bg-zinc-100">
                       <img
                         src={urlFor(post.mainImage)}
                         alt={post.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
                       />
                     </div>
                   )}

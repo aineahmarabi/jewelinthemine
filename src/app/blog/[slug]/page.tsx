@@ -85,11 +85,11 @@ export default async function BlogPostPage({ params }: Props) {
 
         {/* Featured Image */}
         {post.mainImage && (
-          <div className="mb-16">
+          <div className="mb-16 w-full h-[60vh] bg-zinc-100 rounded-lg overflow-hidden shadow-sm">
             <img
               src={urlFor(post.mainImage)}
               alt={post.title}
-              className="w-full h-[60vh] object-cover rounded-lg shadow-sm"
+              className="w-full h-full object-contain"
             />
           </div>
         )}

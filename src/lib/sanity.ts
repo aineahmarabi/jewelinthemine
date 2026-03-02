@@ -8,7 +8,7 @@ export const sanityClient = createClient({
 });
 
 export async function getPosts() {
-  return sanityClient.fetch(`*[_type == "post"]{
+  return sanityClient.fetch(`*[_type == "post" && defined(publishedAt) && publishedAt <= now()]{
     _id,
     title,
     slug,
@@ -26,7 +26,7 @@ export async function getPosts() {
 // Fetch a single post by slug
 export async function getPostBySlug(slug: string) {
   return sanityClient.fetch(
-    `*[_type == "post" && slug.current == $slug][0]{
+    `*[_type == "post" && slug.current == $slug && defined(publishedAt) && publishedAt <= now()][0]{
       _id,
       title,
       slug,

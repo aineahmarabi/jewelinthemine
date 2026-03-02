@@ -30,8 +30,8 @@ export default async function Home() {
   }
 
   const latest = posts[0];
-  const leftPosts = posts.slice(1, 4); 
-  const rightPosts = posts.slice(4, 6); 
+  const leftPosts = posts.slice(1, 4);
+  const rightPosts = posts.slice(4, 6);
 
   // Filter mining posts (case-insensitive), limit to 4
   const miningPosts = posts.filter(
@@ -53,7 +53,7 @@ export default async function Home() {
                 <img
                   src={urlFor(post.mainImage)}
                   alt={post.title}
-                  className="w-full h-32 object-cover rounded mb-2"
+                  className="w-full h-32 object-contain rounded mb-2"
                 />
               )}
               <h3 className="text-md font-semibold mb-1">{post.title}</h3>
@@ -102,7 +102,7 @@ export default async function Home() {
                 <img
                   src={urlFor(post.mainImage)}
                   alt={post.title}
-                  className="w-full h-32 object-cover rounded mb-2"
+                  className="w-full h-32 object-contain rounded mb-2"
                 />
               )}
               <h3 className="text-md font-semibold mb-1">{post.title}</h3>
@@ -128,7 +128,7 @@ export default async function Home() {
                 <img
                   src={urlFor(miningPosts[0].mainImage)}
                   alt={miningPosts[0].title}
-                  className="w-full md:w-1/2 h-64 md:h-auto object-cover rounded-t md:rounded-l md:rounded-t-none"
+                  className="w-full md:w-1/2 h-64 md:h-auto object-contain rounded-t md:rounded-l md:rounded-t-none"
                 />
               )}
               <div className="p-6 flex flex-col justify-between">
@@ -186,7 +186,7 @@ export default async function Home() {
                     <img
                       src={urlFor(post.mainImage)}
                       alt={post.title}
-                      className="w-full h-32 object-cover rounded-t"
+                      className="w-full h-32 object-contain rounded-t"
                     />
                   )}
                   <div className="p-6 flex flex-col">

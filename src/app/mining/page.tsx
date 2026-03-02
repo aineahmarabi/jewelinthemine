@@ -64,7 +64,7 @@ export default async function MiningCategoryPage() {
                   <img
                     src={urlFor(featuredPost.mainImage)}
                     alt={featuredPost.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
               )}
@@ -109,7 +109,7 @@ export default async function MiningCategoryPage() {
                         <img
                           src={urlFor(post.mainImage)}
                           alt={post.title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
                         />
                       </div>
                     )}
@@ -145,7 +145,7 @@ export default async function MiningCategoryPage() {
                         <img
                           src={urlFor(post.mainImage)}
                           alt={post.title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
                         />
                       </div>
                     )}

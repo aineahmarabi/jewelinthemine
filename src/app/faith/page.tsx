@@ -70,7 +70,7 @@ export default async function FaithCategoryPage() {
                   <img
                     src={urlFor(featuredPost.mainImage)}
                     alt={featuredPost.title}
-                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
               )}

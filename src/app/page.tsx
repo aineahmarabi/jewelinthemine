@@ -1,4 +1,3 @@
-
 import { getPosts } from "@/lib/sanity";
 import { urlFor } from "@/lib/sanityImage";
 import Link from "next/link";
@@ -16,7 +15,8 @@ type Post = {
     image?: any;
   };
 };
-export const dynamic = "force-dynamic"; // Ensure this page is always dynamic
+
+export const dynamic = "force-dynamic";
 
 export default async function Home() {
   const posts: Post[] = await getPosts();
@@ -33,58 +33,58 @@ export default async function Home() {
   const leftPosts = posts.slice(1, 4);
   const rightPosts = posts.slice(4, 6);
 
-  // Filter mining posts (case-insensitive), limit to 4
-  const miningPosts = posts.filter(
-    (post) => post.category?.toLowerCase() === "mining"
-  ).slice(0, 4);
+  const categories = ["Mining", "Mentorship", "Faith", "Travel", "Relationship", "Reflections"];
 
   return (
     <main className="min-h-screen bg-[#EAE9E4] py-6 px-2">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-3">
+      {/* Hero Grid */}
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-3 mb-12">
         {/* Left column */}
         <div className="grid grid-rows-3 gap-3">
           {leftPosts.map((post) => (
             <Link
               key={post._id}
               href={`/blog/${post.slug.current}`}
-              className="bg-white rounded shadow hover:shadow-lg transition p-4 flex flex-col"
+              className="bg-white rounded shadow hover:shadow-lg transition p-4 flex flex-col group"
             >
               {post.mainImage && (
-                <img
-                  src={urlFor(post.mainImage)}
-                  alt={post.title}
-                  className="w-full h-32 object-contain rounded mb-2"
-                />
+                <div className="w-full h-40 overflow-hidden rounded mb-2">
+                  <img
+                    src={urlFor(post.mainImage)}
+                    alt={post.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
               )}
-              <h3 className="text-md font-semibold mb-1">{post.title}</h3>
-              <div className="text-xs text-gray-500 mb-2">
+              <h3 className="text-md font-semibold mb-1 line-clamp-1">{post.title}</h3>
+              <div className="text-xs text-gray-500">
                 {post.publishedAt && new Date(post.publishedAt).toLocaleDateString()}
                 {post.category && <> &nbsp;|&nbsp; {post.category}</>}
-                {post.author?.name && <> &nbsp;|&nbsp; {post.author.name}</>}
               </div>
             </Link>
           ))}
         </div>
 
         {/* Center column - Latest post */}
-        <div className="bg-white rounded shadow-lg p-3 flex flex-col items-center">
+        <div className="bg-white rounded shadow-lg p-4 flex flex-col items-center group">
           {latest.mainImage && (
-            <img
-              src={urlFor(latest.mainImage)}
-              alt={latest.title}
-              className="w-full h-64 object-contain rounded mb-4"
-            />
+            <div className="w-full h-72 overflow-hidden rounded mb-4">
+              <img
+                src={urlFor(latest.mainImage)}
+                alt={latest.title}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+            </div>
           )}
           <div className="text-xs text-gray-500 mb-2">
             {latest.publishedAt && new Date(latest.publishedAt).toLocaleDateString()}
             {latest.category && <> &nbsp;|&nbsp; {latest.category}</>}
-            {latest.author?.name && <> &nbsp;|&nbsp; {latest.author.name}</>}
           </div>
-          <h2 className="text-2xl font-bold mb-2 text-center">{latest.title}</h2>
-          <p className="text-gray-700 mb-4 text-center">{latest.excerpt}</p>
+          <h2 className="text-2xl font-bold mb-2 text-center group-hover:text-[#A855F7] transition-colors">{latest.title}</h2>
+          <p className="text-gray-700 mb-6 text-center line-clamp-3">{latest.excerpt}</p>
           <Link
             href={`/blog/${latest.slug.current}`}
-            className="bg-[#A855F7] hover:bg-[#9333EA] hover:scale-95 text-white px-6 py-2 rounded font-semibold transition"
+            className="bg-[#A855F7] hover:bg-[#9333EA] hover:scale-95 text-white px-8 py-2.5 rounded font-semibold transition shadow-md"
           >
             Read More
           </Link>
@@ -96,112 +96,85 @@ export default async function Home() {
             <Link
               key={post._id}
               href={`/blog/${post.slug.current}`}
-              className="bg-white rounded shadow hover:shadow-lg transition p-4 flex flex-col"
+              className="bg-white rounded shadow hover:shadow-lg transition p-4 flex flex-col group"
             >
               {post.mainImage && (
-                <img
-                  src={urlFor(post.mainImage)}
-                  alt={post.title}
-                  className="w-full h-32 object-contain rounded mb-2"
-                />
+                <div className="w-full h-48 overflow-hidden rounded mb-2">
+                  <img
+                    src={urlFor(post.mainImage)}
+                    alt={post.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
               )}
               <h3 className="text-md font-semibold mb-1">{post.title}</h3>
               <div className="text-xs text-gray-500 mb-2">
                 {post.publishedAt && new Date(post.publishedAt).toLocaleDateString()}
                 {post.category && <> &nbsp;|&nbsp; {post.category}</>}
-                {post.author?.name && <> &nbsp;|&nbsp; {post.author.name}</>}
               </div>
-              <p className="text-sm text-gray-700 mt-2">{post.excerpt}</p>
+              <p className="text-sm text-gray-700 mt-2 line-clamp-2">{post.excerpt}</p>
             </Link>
           ))}
         </div>
       </div>
 
-      {/* Mining Featured Section */}
-      {miningPosts.length > 0 && (
-        <section className="max-w-6xl mx-auto mt-12">
-          <h2 className="text-lg font-bold mb-4 uppercase tracking-wide">Mining</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-            {/* Featured (latest) mining post */}
-            <div className="md:col-span-2 bg-white rounded shadow flex flex-col md:flex-row h-full">
-              {miningPosts[0].mainImage && (
-                <img
-                  src={urlFor(miningPosts[0].mainImage)}
-                  alt={miningPosts[0].title}
-                  className="w-full md:w-1/2 h-64 md:h-auto object-contain rounded-t md:rounded-l md:rounded-t-none"
-                />
-              )}
-              <div className="p-6 flex flex-col justify-between">
-                <div>
-                  <h3 className="text-xl font-bold mb-2">{miningPosts[0].title}</h3>
-                  <div className="text-xs text-gray-500 mb-2">
-                    {miningPosts[0].publishedAt && new Date(miningPosts[0].publishedAt).toLocaleDateString()}
-                    {miningPosts[0].author?.name && <> &nbsp;|&nbsp; {miningPosts[0].author.name}</>}
-                  </div>
-                  <p className="text-gray-700 mb-4 line-clamp-3">{miningPosts[0].excerpt}</p>
-                </div>
-                <Link
-                  href={`/blog/${miningPosts[0].slug.current}`}
-                  className="inline-block bg-[#A855F7] hover:bg-[#9333EA] hover:scale-95 text-white px-4 py-2 rounded font-semibold transition w-max"
-                >
-                  Read More
-                </Link>
-              </div>
-            </div>
-            {/* List of next 4 mining posts */}
-            <div className="flex flex-col gap-4">
-              {miningPosts.slice(1, 5).map((post) => (
-                <Link
-                  key={post._id}
-                  href={`/blog/${post.slug.current}`}
-                  className="bg-white rounded shadow hover:shadow-lg transition p-4 flex flex-col"
-                >
-                  <h4 className="text-md font-semibold mb-1">{post.title}</h4>
-                  <div className="text-xs text-gray-500 mb-1">
-                    {post.publishedAt && new Date(post.publishedAt).toLocaleDateString()}
-                  </div>
-                  <p className="text-xs text-gray-700 line-clamp-2">{post.excerpt}</p>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+      {/* Dynamic Category Sections */}
+      {categories.map((catName) => {
+        const catPosts = posts
+          .filter((p) => p.category?.toLowerCase() === catName.toLowerCase())
+          .slice(0, 4);
 
-      {/* Faith Section */}
-      {posts.filter((post) => post.category?.toLowerCase() === "faith").length > 0 && (
-        <section className="max-w-6xl mx-auto mt-12">
-          <h2 className="text-lg font-bold mb-4 uppercase tracking-wide">Faith</h2>
-          <div className="grid grid-cols-2 md:flex md:gap-4 gap-3 overflow-x-auto pb-2">
-            {posts
-              .filter((post) => post.category?.toLowerCase() === "faith")
-              .slice(0, 4)
-              .map((post) => (
+        if (catPosts.length === 0) return null;
+
+        return (
+          <section key={catName} className="max-w-6xl mx-auto mt-16">
+            <div className="flex justify-between items-end mb-6 border-b border-gray-300 pb-2">
+              <h2 className="text-2xl font-bold uppercase tracking-tight text-gray-900">{catName}</h2>
+              <Link
+                href={`/${catName.toLowerCase()}`}
+                className="text-sm font-semibold text-[#A855F7] hover:text-[#9333EA] transition-colors"
+              >
+                View All {catName} →
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {catPosts.map((post) => (
                 <Link
                   key={post._id}
                   href={`/blog/${post.slug.current}`}
-                  className="bg-white rounded shadow hover:shadow-lg transition flex-shrink-0 flex flex-col min-w-0 md:min-w-[270px] md:max-w-[270px]"
+                  className="bg-white rounded-lg shadow hover:shadow-xl transition-all duration-300 flex flex-col group overflow-hidden"
                 >
                   {post.mainImage && (
-                    <img
-                      src={urlFor(post.mainImage)}
-                      alt={post.title}
-                      className="w-full h-32 object-contain rounded-t"
-                    />
-                  )}
-                  <div className="p-6 flex flex-col">
-                    <h3 className="text-md font-semibold mb-1">{post.title}</h3>
-                    <div className="text-xs text-gray-500 mb-1">
-                      {post.publishedAt && new Date(post.publishedAt).toLocaleDateString()}
-                      {post.author?.name && <> &nbsp;|&nbsp; {post.author.name}</>}
+                    <div className="w-full h-48 overflow-hidden">
+                      <img
+                        src={urlFor(post.mainImage)}
+                        alt={post.title}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
                     </div>
-                    <p className="text-xs text-gray-700 line-clamp-3">{post.excerpt}</p>
+                  )}
+                  <div className="p-5 flex flex-col flex-1">
+                    <h3 className="text-lg font-bold mb-2 group-hover:text-[#A855F7] transition-colors line-clamp-2">
+                      {post.title}
+                    </h3>
+                    <div className="text-xs text-gray-400 mb-3 flex items-center gap-2">
+                      {post.publishedAt && <span>{new Date(post.publishedAt).toLocaleDateString()}</span>}
+                      {post.author?.name && <span>• {post.author.name}</span>}
+                    </div>
+                    <p className="text-sm text-gray-600 line-clamp-3 mb-4 flex-1">
+                      {post.excerpt}
+                    </p>
+                    <span className="text-xs font-bold text-[#A855F7] uppercase tracking-wider group-hover:translate-x-1 transition-transform inline-block">
+                      Read Post →
+                    </span>
                   </div>
                 </Link>
               ))}
-          </div>
-        </section>
-      )}
+            </div>
+          </section>
+        );
+      })}
     </main>
   );
 }

@@ -2,6 +2,8 @@ import { getPosts } from "@/lib/sanity";
 import { urlFor } from "@/lib/sanityImage";
 import Link from "next/link";
 
+export const dynamic = "force-dynamic";
+
 type Post = {
   _id: string;
   title: string;
@@ -18,7 +20,7 @@ type Post = {
 
 export default async function MiningCategoryPage() {
   const allPosts: Post[] = await getPosts();
-  
+
   // Filter only mining posts
   const miningPosts = allPosts.filter(
     (post) => post.category?.toLowerCase() === "mining"
@@ -50,10 +52,10 @@ export default async function MiningCategoryPage() {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 py-12">
-        
+
         {/* Hero Section */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-          
+
           {/* Featured Post - Left Side */}
           <div className="lg:col-span-2">
             <Link href={`/blog/${featuredPost.slug.current}`} className="group block">
@@ -168,8 +170,8 @@ export default async function MiningCategoryPage() {
 
         {/* Back to Home */}
         <div className="mt-16 pt-8 border-t border-gray-200">
-          <Link 
-            href="/" 
+          <Link
+            href="/"
             className="inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors duration-200 font-medium"
           >
             ← Back to all posts

@@ -2,6 +2,8 @@ import { getPosts } from "@/lib/sanity";
 import { urlFor } from "@/lib/sanityImage";
 import Link from "next/link";
 
+export const dynamic = "force-dynamic";
+
 interface SanityImage {
   _type: "image";
   asset: { _ref: string; _type: "reference"; };

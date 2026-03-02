@@ -1,4 +1,3 @@
-
 import { getPostBySlug } from "@/lib/sanity";
 import { urlFor } from "@/lib/sanityImage";
 import { notFound } from "next/navigation";
@@ -22,7 +21,7 @@ export default async function BlogPostPage({ params }: Props) {
   return (
     <main className="min-h-screen bg-[#f0efe9] font-sans">
       <div className="max-w-6xl mx-auto px-6 py-12">
-        
+
         {/* Header Section with Title and Meta */}
         <header className="mb-12">
           <div className="flex items-start justify-between gap-8 mb-8">
@@ -34,7 +33,7 @@ export default async function BlogPostPage({ params }: Props) {
                 {post.excerpt || "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"}
               </p>
             </div>
-            
+
             {/* Metadata Sidebar */}
             <div className="hidden md:block w-48 flex-shrink-0">
               <div className="space-y-4 text-sm">
@@ -50,14 +49,14 @@ export default async function BlogPostPage({ params }: Props) {
                     </div>
                   </div>
                 )}
-                
+
                 {post.category && (
                   <div>
                     <div className="text-gray-400 uppercase tracking-wide text-xs mb-1">Category</div>
                     <div className="text-gray-700 font-medium">{post.category}</div>
                   </div>
                 )}
-                
+
                 {post.author?.name && (
                   <div>
                     <div className="text-gray-400 uppercase tracking-wide text-xs mb-1">Author</div>
@@ -97,14 +96,14 @@ export default async function BlogPostPage({ params }: Props) {
 
         {/* Content Section with Sidebar */}
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
-          
+
           {/* Main Content */}
           <div className="lg:col-span-3">
             <article className="prose prose-lg prose-gray max-w-none
               prose-headings:font-light prose-headings:text-[#1a1a1a]
               prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
               prose-h3:text-2xl prose-h3:mt-10 prose-h3:mb-4
-              prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-6
+              prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-10
               prose-a:text-[#A855F7] prose-a:no-underline hover:prose-a:underline
               prose-strong:text-[#1a1a1a] prose-strong:font-semibold
               prose-blockquote:border-l-4 prose-blockquote:border-[#A855F7] 
@@ -112,7 +111,14 @@ export default async function BlogPostPage({ params }: Props) {
               prose-ul:my-6 prose-li:my-2
               prose-img:rounded-lg prose-img:shadow-sm
             ">
-              <PortableText value={post.body} />
+              <PortableText
+                value={post.body}
+                components={{
+                  block: {
+                    normal: ({ children }: any) => <p className="mb-10">{children}</p>,
+                  },
+                }}
+              />
             </article>
           </div>
 
@@ -123,14 +129,14 @@ export default async function BlogPostPage({ params }: Props) {
                 <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-4">
                   Share This Article
                 </h3>
-                <ShareButtons 
+                <ShareButtons
                   url={currentUrl}
                   title={post.title}
                   excerpt={post.excerpt || ''}
                   className="space-y-3"
                 />
               </div>
-              
+
               {/* Additional sidebar content can go here */}
               <div className="mt-8 p-6 border-t border-gray-200">
                 <h4 className="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-3">
@@ -149,8 +155,8 @@ export default async function BlogPostPage({ params }: Props) {
 
         {/* Back to Blog Link */}
         <div className="mt-16 pt-8 border-t border-gray-200">
-          <Link 
-            href="/" 
+          <Link
+            href="/"
             className="inline-flex items-center text-[#A855F7] hover:text-[#9333EA] hover:scale-95 transition-colors duration-200 font-medium"
           >
             ← Back to all posts
